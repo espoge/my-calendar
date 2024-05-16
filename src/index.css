@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.modal-add-event {
+  transition: all .5s ease-in-out;
+  top: -50%
+}
+
+.modal-add-event.hidden {
+}
+
+.modal-add-event.visible { 
+  top: 10%
+}
