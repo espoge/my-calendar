@@ -56,7 +56,7 @@ const handleEventDetail = (eventList) => {
         <p className={today.toFormat('dd-MM-yyyy') === day.start.toFormat('dd-MM-yyyy') ? 'font-bold' : 'font-normal' }>{day.start.toFormat('d')}</p>
         {filteredEvents(day.start.toFormat('yyyy-MM-dd')).length > 3 ? 
         <p className="text-right font-bold text-orange-600 absolute right-0 bottom-0 p-2" >+ <span className="cursor-pointer" onClick={()=>handleEventDetail(filteredEvents(day.start.toFormat('yyyy-MM-dd'))) }>{filteredEvents(day.start.toFormat('yyyy-MM-dd')).length}</span></p> 
-        : filteredEvents(day.start.toFormat('yyyy-MM-dd')).map((ev)=> <p className="even:bg-slate-200" key={ev.date}>{ev.description}</p>)}
+        : filteredEvents(day.start.toFormat('yyyy-MM-dd')).map((ev)=> <p className="px-1 rounded-sm lh-1 even:bg-slate-200" key={ev.date}>{ev.description}</p>)}
         
         </div>)
     ) }
