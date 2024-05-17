@@ -15,9 +15,9 @@ function CalendarWrapper() {
 
 
   const actualDate = DateTime.now().plus({month})
-  const start = actualDate.startOf('month').startOf('week')
-  const end = actualDate.endOf('month').endOf('week')
-  const range = Interval.fromDateTimes(start, end).splitBy({ days: 1 })
+  const startDate = actualDate.startOf('month').startOf('week')
+  const endDate = actualDate.endOf('month').endOf('week')
+  const rangeDate = Interval.fromDateTimes(startDate, endDate).splitBy({ days: 1 })
   const today = DateTime.now()
 
 const handleSubmit = (e, date, description) => {
@@ -51,8 +51,8 @@ const handleEventDetail = (eventList) => {
             <h2 className="text-lg">Sunday </h2>
         </div>
         <div className="grid grid-cols-7">
-    { range.map((day) => ( 
-      <div key={day} className={`border-b-2 relative h-28 p-2 ${actualDate.toFormat('M') === day.start.toFormat('M') ? 'bg-white' : 'bg-slate-50'}` }>
+    { rangeDate.map((day) => ( 
+      <div key={day} className={`border-b-2 relative h-28 p-2 ${actualDate.toFormat('M') === day.start.toFormat('M') ? 'bg-white' : 'bg-slate-100'}` }>
         <p className={today.toFormat('dd-MM-yyyy') === day.start.toFormat('dd-MM-yyyy') ? 'font-bold' : 'font-normal' }>{day.start.toFormat('d')}</p>
         {filteredEvents(day.start.toFormat('yyyy-MM-dd')).length > 3 ? 
         <p className="text-right font-bold text-orange-600 absolute right-0 bottom-0 p-2" >+ <span className="cursor-pointer" onClick={()=>handleEventDetail(filteredEvents(day.start.toFormat('yyyy-MM-dd'))) }>{filteredEvents(day.start.toFormat('yyyy-MM-dd')).length}</span></p> 
