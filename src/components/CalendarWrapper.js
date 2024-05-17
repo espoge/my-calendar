@@ -15,8 +15,8 @@ function CalendarWrapper() {
 
 
   const actualDate = DateTime.now().plus({month})
-  const start = DateTime.now().startOf('month').startOf('week').plus({month})
-  const end = DateTime.now().endOf('month').endOf('week').plus({month})
+  const start = actualDate.startOf('month').startOf('week')
+  const end = actualDate.endOf('month').endOf('week')
   const range = Interval.fromDateTimes(start, end).splitBy({ days: 1 })
   const today = DateTime.now()
 
